@@ -6,8 +6,9 @@ plugins {
 }
 
 android {
-    namespace = "com.example.pawnder_app"
-    compileSdk = flutter.compileSdkVersion
+    namespace = "com.justinbruinsma.pawnder"
+    // Updated to API 36 as required by your plugins
+    compileSdk = 36
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -16,25 +17,32 @@ android {
     }
 
     kotlinOptions {
+        // Modern syntax to resolve the deprecation warning
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.pawnder_app"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        applicationId = "com.justinbruinsma.pawnder"
         minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        // Updated to match the compileSdk for consistency
+        targetSdk = 36
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
 
     buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+        getByName("release") {
+            // Uses the debug keys so you don't have to manage a keystore for your class project.
             signingConfig = signingConfigs.getByName("debug")
+
+            // Corrected syntax for Kotlin DSL (.kts)
+            isMinifyEnabled = false
+            isShrinkResources = false
+
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 }
