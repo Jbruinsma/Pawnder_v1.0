@@ -94,14 +94,8 @@ class CommunityPost {
   }
 
   Map<String, String> toFeedMap() {
-    final normalizedTags = tags.map((tag) => tag.toLowerCase()).toList();
-    final section = normalizedTags.any((tag) => tag.contains('found'))
-        ? 'found'
-        : 'recent';
-
     return {
       'id': id,
-      'section': section,
       'title': title,
       'authorId': authorId,
       'communityId': communityId ?? '',

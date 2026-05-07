@@ -25,7 +25,17 @@ class FeedService {
         .map((c) => Community.fromJson(c as Map<String, dynamic>))
         .toList();
 
-    final posts = (data['posts'] as List? ?? const [])
+    final postsData = data['posts'] as Map<String, dynamic>? ?? const {};
+
+    final lostPosts = (postsData['lost'] as List? ?? const [])
+        .map((p) => CommunityPost.fromJson(p as Map<String, dynamic>))
+        .toList();
+
+    final foundPosts = (postsData['found'] as List? ?? const [])
+        .map((p) => CommunityPost.fromJson(p as Map<String, dynamic>))
+        .toList();
+
+    final miscPosts = (postsData['misc'] as List? ?? const [])
         .map((p) => CommunityPost.fromJson(p as Map<String, dynamic>))
         .toList();
 
@@ -33,7 +43,11 @@ class FeedService {
 
     return {
       'communities': communities,
-      'posts': posts,
+      'posts': {
+        'lost': lostPosts,
+        'found': foundPosts,
+        'misc': miscPosts,
+      },
       'applicable_tags': tags,
     };
   }
