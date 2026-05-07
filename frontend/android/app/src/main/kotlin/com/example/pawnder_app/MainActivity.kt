@@ -1,4 +1,4 @@
-package com.example.pawnder_app
+package com.justinbruinsma.pawnder
 
 import io.flutter.embedding.android.FlutterActivity
 
