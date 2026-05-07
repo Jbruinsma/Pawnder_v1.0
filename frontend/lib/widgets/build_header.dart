@@ -5,21 +5,23 @@ Widget buildHeader() {
   return const HomeHeader(
     title: 'PAWNDER',
     subtitle: 'Nearby pets and community alerts',
-    icon: Icons.cruelty_free_rounded,
+    leadingAsset: 'assets/images/app_icon.png',
   );
 }
 
 class HomeHeader extends StatelessWidget {
   final String title;
   final String? subtitle;
-  final IconData? icon;
+  final String? leadingAsset;
+  final IconData? fallbackIcon;
   final Widget? trailing;
 
   const HomeHeader({
     super.key,
     required this.title,
     this.subtitle,
-    this.icon,
+    this.leadingAsset,
+    this.fallbackIcon,
     this.trailing,
   });
 
@@ -31,7 +33,7 @@ class HomeHeader extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        if (icon != null) ...[
+        if (leadingAsset != null || fallbackIcon != null) ...[
           Container(
             width: 40,
             height: 40,
@@ -47,7 +49,15 @@ class HomeHeader extends StatelessWidget {
                 ),
               ],
             ),
-            child: Icon(icon, color: theme.colorScheme.onSurface, size: 19),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(11),
+              child: leadingAsset != null
+                  ? Image.asset(
+                      leadingAsset!,
+                      fit: BoxFit.cover,
+                    )
+                  : Icon(fallbackIcon, color: theme.colorScheme.onSurface, size: 19),
+            ),
           ),
           const SizedBox(width: 10),
         ],

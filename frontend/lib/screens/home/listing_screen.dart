@@ -302,7 +302,7 @@ class _ListingScreenState extends State<ListingScreen> {
                 HomeHeader(
                   title: isEditing ? 'EDIT POST' : 'CREATE POST',
                   subtitle: isEditing ? 'Update your neighborhood alert' : 'Share a quick alert with your neighborhood',
-                  icon: isEditing ? Icons.edit_note_rounded : Icons.add_location_alt_outlined,
+                  fallbackIcon: isEditing ? Icons.edit_note_rounded : Icons.add_location_alt_outlined,
                 ),
                 const SizedBox(height: 28),
 

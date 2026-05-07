@@ -157,7 +157,7 @@ class _ChatScreenState extends State<ChatScreen> {
         children: [
           const HomeHeader(
             title: 'Messages',
-            icon: Icons.mark_unread_chat_alt_outlined,
+            fallbackIcon: Icons.mark_unread_chat_alt_outlined,
           ),
           const SizedBox(height: 18),
           if (_isLoading) const LinearProgressIndicator(minHeight: 3),

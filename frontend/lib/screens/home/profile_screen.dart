@@ -80,7 +80,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           const HomeHeader(
             title: 'Account Center',
             subtitle: 'Profile, listings, and contact details',
-            icon: Icons.account_circle_outlined,
+            fallbackIcon: Icons.account_circle_outlined,
           ),
           const SizedBox(height: 18),
           Container(height: 2, color: theme.dividerColor),
@@ -144,7 +144,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         builder: (_) => UserPostsScreen(
                           title: 'My Posts',
                           subtitle: 'Posts you\'ve created',
-                          icon: Icons.list_alt_rounded,
+                          fallbackIcon: Icons.list_alt_rounded,
                           loadPosts: () =>
                               _postService.getUserPosts(userId: user.id),
                         ),
@@ -165,7 +165,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         builder: (_) => UserPostsScreen(
                           title: 'Bookmarks',
                           subtitle: 'Posts you\'ve saved',
-                          icon: Icons.bookmark_outline_rounded,
+                          fallbackIcon: Icons.bookmark_outline_rounded,
                           loadPosts: () =>
                               _postService.getUserBookmarks(userId: user.id),
                         ),

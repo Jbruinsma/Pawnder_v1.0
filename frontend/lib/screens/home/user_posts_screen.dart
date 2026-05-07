@@ -7,14 +7,14 @@ import 'package:pawnder_app/widgets/build_header.dart';
 class UserPostsScreen extends StatefulWidget {
   final String title;
   final String subtitle;
-  final IconData icon;
+  final IconData fallbackIcon;
   final Future<List<CommunityPost>> Function() loadPosts;
 
   const UserPostsScreen({
     super.key,
     required this.title,
     required this.subtitle,
-    required this.icon,
+    required this.fallbackIcon,
     required this.loadPosts,
   });
 
@@ -100,7 +100,7 @@ class _UserPostsScreenState extends State<UserPostsScreen> {
               HomeHeader(
                 title: widget.title,
                 subtitle: widget.subtitle,
-                icon: widget.icon,
+                fallbackIcon: widget.fallbackIcon,
                 trailing: IconButton(
                   onPressed: () => Navigator.pop(context),
                   icon: Icon(

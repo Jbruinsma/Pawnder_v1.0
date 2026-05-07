@@ -1,7 +1,5 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-
 import 'package:pawnder_app/models/community.dart';
 import 'package:pawnder_app/screens/home/search_results.dart';
 import 'package:pawnder_app/widgets/build_header.dart';
@@ -63,7 +61,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const HomeHeader(
-            icon: Icons.travel_explore_rounded,
+            fallbackIcon: Icons.travel_explore_rounded,
             subtitle: 'Neighborhood groups and pet alerts',
             title: 'Communities',
           ),

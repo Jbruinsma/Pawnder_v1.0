@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:pawnder_app/models/community.dart';
@@ -98,17 +97,7 @@ class _CreateCommunityScreenState extends State<CreateCommunityScreen> {
       }
 
       setState(() => _createdCommunity = community);
-    } catch (error, stack) {
-      // TEMP DIAGNOSTICS — remove once fixed
-      debugPrint('CREATE COMMUNITY ERROR type=${error.runtimeType}');
-      debugPrint('CREATE COMMUNITY ERROR toString=$error');
-      if (error is DioException) {
-        debugPrint('  status=${error.response?.statusCode}');
-        debugPrint('  data=${error.response?.data}');
-        debugPrint('  dioType=${error.type}');
-      }
-      debugPrint('  stack=$stack');
-
+    } catch (error) {
       if (!mounted) {
         return;
       }
@@ -179,7 +168,7 @@ class _CreateCommunityScreenState extends State<CreateCommunityScreen> {
               const HomeHeader(
                 title: 'CREATE COMMUNITY',
                 subtitle: 'Start a neighborhood group before posting alerts',
-                icon: Icons.add_location_alt_outlined,
+                fallbackIcon: Icons.add_location_alt_outlined,
               ),
               const SizedBox(height: 28),
               if (_createdCommunity == null) ...[
