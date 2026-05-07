@@ -78,7 +78,7 @@ A Standard Object Storage bucket is required to store application assets.
 Refer to the official Oracle documentation for step-by-step creation:
 - Create a Bucket: https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/managingbuckets_topic-To_create_a_bucket.htm
 
-**AFTER CREATING THE BUCKET, GO INTO THE BUCKET DETAILS AND SET THE BUCKET VISIBILITY TO 'Public Read'**
+*AFTER CREATING THE BUCKET, GO INTO THE BUCKET DETAILS AND SET THE BUCKET VISIBILITY TO 'Public Read'*
 
 2. API AUTHENTICATION
 To interface with OCI via the SDK, you must generate an API RSA key pair and 
