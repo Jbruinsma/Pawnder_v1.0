@@ -4,8 +4,8 @@ Pawnder is a mobile platform designed to fight pet-owner isolation
 by centralizing communities into a single, high-engagement hub. 
 
 
-Pawnder is built for "Social Good"; by implementing a spatial data 
-model that balances location relevance with community accuracy, the platform 
+Pawnder is built to implement a spatial data 
+model that balances location relevance with community accuracy. The platform 
 serves as a digital neighborhood safety net. It addresses 
 the systemic issues of low engagement and animal welfare visibility by 
 transforming passive neighborhoods into active, supportive ecosystems.
