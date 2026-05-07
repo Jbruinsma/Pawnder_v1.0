@@ -1,6 +1,4 @@
-===============================================================================
-PAWNDER | PROJECT OVERVIEW
-===============================================================================
+**PAWNDER | PROJECT OVERVIEW**
 
 Pawnder is a mobile platform designed to fight pet-owner isolation 
 by centralizing communities into a single, high-engagement hub. 
@@ -13,9 +11,7 @@ the systemic issues of low engagement and animal welfare visibility by
 transforming passive neighborhoods into active, supportive ecosystems.
 
 
-========================================================================
-PAWNDER | DATABASE SETUP & CONFIGURATION
-========================================================================
+**PAWNDER | DATABASE SETUP & CONFIGURATION**
 
 Pawnder utilizes PostgreSQL with specific extensions for geospatial matching, 
 unique identifiers, and fuzzy search functionality. Ensure the following 
@@ -70,9 +66,7 @@ Resetting the Password (if required):
 Verifying Active Roles:
   $ psql -U postgres -c "\du"
 
-======================================================================
-PAWNDER | OBJECT STORAGE & INFRASTRUCTURE (OCI)
-======================================================================
+**PAWNDER | OBJECT STORAGE & INFRASTRUCTURE (OCI)**
 
 Pawnder uses Oracle Cloud Infrastructure (OCI) Object Storage for storing images uploaded by users. You must configure an OCI bucket and 
 API credentials to enable these features.
@@ -91,9 +85,7 @@ To interface with OCI via the SDK, you must generate an API RSA key pair and
 upload the public key to your OCI User profile to obtain a fingerprint.
 - API Key & Fingerprint Setup: https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm
 
-================================================================================
-PAWNDER | BACKEND SETUP
-================================================================================
+**PAWNDER | BACKEND SETUP**
 
 The Pawnder backend is built using Python 3.10+. It uses the FastAPI framework 
 for high-performance API endpoints and SQLAlchemy for database storage.
@@ -161,9 +153,7 @@ models.
 extensions (Step 3 of Database Setup) were successfully enabled. The 
 auto-initialization will fail if PostGIS or UUID-OSSP are missing.
 
-===========================================================================
-PAWNDER | FRONTEND SETUP (FLUTTER)
-===========================================================================
+**PAWNDER | FRONTEND SETUP (FLUTTER)**
 
 The Pawnder mobile application is built using the Flutter framework, providing 
 cross-platform support for Android and iOS.
@@ -205,9 +195,7 @@ Execute the following command to start the application:
 To compile the application for testing in high-performance mode:
   $ flutter run --release
 
-======================================================================
-PAWNDER | TESTING & QUALITY ASSURANCE
-======================================================================
+**PAWNDER | TESTING & QUALITY ASSURANCE**
 
 Due to the rapid development cycle for the initial MVP, I used a manual functional testing strategy paired with PyTests 
 for backend development. This involved systematic verification of core features across the full stack to ensure 
@@ -242,9 +230,7 @@ distance threshold.
 - Frontend Stability: Verified on Android Emulator (API 36) and physical 
   iOS hardware.
 
-=====================================================================
-PAWNDER | TECH STACK & SYSTEM REQUIREMENTS
-=====================================================================
+**PAWNDER | TECH STACK & SYSTEM REQUIREMENTS**
 
 1. CORE TECH STACK
 - Frontend Framework: Flutter (Dart)
@@ -278,9 +264,7 @@ To build or run this project locally, the following software must be installed:
 - CORS Middleware: Configured in the FastAPI core to allow local development 
   across specific origin patterns.
 
-=========================================================================
-PAWNDER | CONTRIBUTORS & ROLES
-=========================================================================
+**PAWNDER | CONTRIBUTORS & ROLES**
 
 - Justin Bruinsma: Group Leader & Lead Backend Developer
   
