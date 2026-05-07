@@ -45,6 +45,8 @@ Widget buildCommunityPostsFeed({
   }
 
   return ListView.separated(
+    shrinkWrap: true,
+    physics: const NeverScrollableScrollPhysics(),
     padding: const EdgeInsets.only(bottom: 92),
     itemCount: visiblePosts.length,
     separatorBuilder: (context, index) => const SizedBox(height: 14),

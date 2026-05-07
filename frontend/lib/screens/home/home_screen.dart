@@ -684,12 +684,29 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 ),
               ),
               const SizedBox(height: 12),
-              buildCategoryRow(
-                categories: _feedCategories,
-                onCategoryTap: (category) =>
-                    setState(() => _selectedCategory = category),
-                selectedCategory: _selectedCategory,
-              ),
+              _isFetchingFeed
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12.0),
+                      child: SizedBox(
+                        height: 32,
+                        child: Center(
+                          child: SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(
+                              color: theme.colorScheme.primary,
+                              strokeWidth: 2,
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  : buildCategoryRow(
+                      categories: _feedCategories,
+                      onCategoryTap: (category) =>
+                          setState(() => _selectedCategory = category),
+                      selectedCategory: _selectedCategory,
+                    ),
               const SizedBox(height: 22),
               Text(
                 !hasAnyPosts ? 'Ideas for you' : 'What\'s New',
@@ -726,11 +743,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                               searchQuery: '',
                               selectedCategory: _selectedCategory,
                             )
-                          : CustomScrollView(
-                              slivers: [
-                                if (filteredLost.isNotEmpty)
-                                  SliverToBoxAdapter(
-                                    child: _HorizontalCarousel(
+                          : SingleChildScrollView(
+                              physics: const AlwaysScrollableScrollPhysics(),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  if (filteredLost.isNotEmpty)
+                                    _HorizontalCarousel(
                                       title: 'Lost Pets',
                                       posts: filteredLost,
                                       onPostTap: (postMap) async {
@@ -743,10 +762,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                         _handlePostUpdate(result);
                                       },
                                     ),
-                                  ),
-                                if (filteredFound.isNotEmpty)
-                                  SliverToBoxAdapter(
-                                    child: _HorizontalCarousel(
+                                  if (filteredFound.isNotEmpty)
+                                    _HorizontalCarousel(
                                       title: 'Found Pets',
                                       posts: filteredFound,
                                       onPostTap: (postMap) async {
@@ -759,11 +776,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                         _handlePostUpdate(result);
                                       },
                                     ),
-                                  ),
-                                if (filteredLost.isNotEmpty || filteredFound.isNotEmpty)
-                                  SliverToBoxAdapter(
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(top: 16.0, bottom: 8.0),
+                                  if (filteredLost.isNotEmpty || filteredFound.isNotEmpty)
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 16.0, bottom: 8.0, left: 18.0),
                                       child: Text(
                                         'Community Feed',
                                         style: TextStyle(
@@ -773,11 +788,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                         ),
                                       ),
                                     ),
-                                  ),
-                                if (filteredMisc.isNotEmpty)
-                                  SliverFillRemaining(
-                                    hasScrollBody: true,
-                                    child: buildCommunityPostsFeed(
+                                  if (filteredMisc.isNotEmpty)
+                                    buildCommunityPostsFeed(
                                       currentUserId: _currentUser?.id,
                                       onCommentTap: (postMap) async {
                                         final result = await Navigator.push<Map<String, String>>(
@@ -800,8 +812,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                       posts: filteredMisc,
                                       searchQuery: '',
                                     ),
-                                  ),
-                              ],
+                                ],
+                              ),
                             )),
                 ),
               ),

@@ -101,7 +101,7 @@ def seed() -> None:
     try:
         explorer = get_or_create_user(
             db,
-            email="geo.explorer@example.com",
+            email="geo.explorer@justinbruinsma.com",
             full_name="Geo Explorer",
             role="Community User",
             longitude=NYC_LON,
@@ -109,7 +109,7 @@ def seed() -> None:
         )
         reporter = get_or_create_user(
             db,
-            email="neighborhood.reporter@example.com",
+            email="neighborhood.reporter@justinbruinsma.com",
             full_name="Neighborhood Reporter",
             role="Community User",
             longitude=-74.0048,
@@ -117,7 +117,7 @@ def seed() -> None:
         )
         shelter = get_or_create_user(
             db,
-            email="rescue.partner@example.com",
+            email="rescue.partner@justinbruinsma.com",
             full_name="Rescue Partner",
             role="Shelter/Moderator",
             longitude=-74.0082,
