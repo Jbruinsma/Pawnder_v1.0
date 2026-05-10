@@ -66,6 +66,14 @@ Resetting the Password (if required):
 Verifying Active Roles:
   $ psql -U postgres -c "\du"
 
+5. TABLE SET UP & DUMMY DATA (OPTIONAL & NOT RECOMMENDED)
+
+*THE BACKEND AUTOMATICALLY CREATES THE TABLES PAWNDER NEEDS TO FUNCTION ON STARTUP. IT IS RECOMMENDED YOU SKIP THIS STEP.*
+
+- To create the tables manually, run the *table_creation.sql* script located in the 'sql_scripts' directory.
+
+- To populate the database with sample data, run the *dummy_data.sql* script.
+
 **PAWNDER | OBJECT STORAGE & INFRASTRUCTURE (OCI)**
 
 Pawnder uses Oracle Cloud Infrastructure (OCI) Object Storage for storing images uploaded by users. You must configure an OCI bucket and 
